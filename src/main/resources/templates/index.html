@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <meta charset="UTF-8" />
+    <title>Lets have a potluck</title>
+</head>
+<body>
+
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Lets Have A Pot-Luck!</h1>
+        <p>If we all work together, we can make this the best pot luck ever,
+        please let me know what you can bring using the form below</p>
+    </div>
+<form action="#" th:action="@{/givePot}" th:object="${potItem}" method="post">
+    <div class="form-group">
+        <label for="name">Your name:</label>
+        <input type="text" class="form-control"
+               th:field="*{name}" id="name" placeholder="name"/>
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Id Error</span>
+    </div>
+    <div class="form-group">
+        <label for="pot">Your pot:</label>
+        <input type="text" class="form-control"
+               th:field="*{pot}" id="pot" placeholder="pot"/>
+        <span th:if="${#fields.hasErrors('pot')}" th:errors="*{pot}">Id Error</span>
+    </div>
+    <div class="form-group">
+        <label for="serves">number of people served:</label>
+        <input type="number" class="form-control"
+               th:field="*{serves}" id="serves" placeholder="serves"/>
+        <span th:if="${#fields.hasErrors('serves')}" th:errors="*{serves}">Id Error</span>
+    </div>
+
+
+
+    <button type="submit" class="btn btn-default">Submit your pot</button>
+</form>
+</div>
+
+</body>
+</html>

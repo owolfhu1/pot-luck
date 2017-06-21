@@ -1,0 +1,39 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Thanks for submitting your pot!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Thank you <span th:text="${name}">-!error!-</span> for submitting your pot!</h1>
+            <p>See what others have submitted below or <a href="/">click here</a> to add another pot!</p>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Who is bring the pot?</th>
+                <th>what is the pot?</th>
+                <th>how many does it serve?</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="item: ${list}">
+                <td th:text="${item.getName()}">who</td>
+                <td th:text="${item.getPot()}">pot</td>
+                <td th:text="${item.getServes()}">serves</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
